@@ -1,0 +1,20 @@
+AllCops:
+  Exclude:
+    - dictum.gemspec
+    - lib/tasks/dictum.rake
+    - spec/spec_helper.rb
+
+Documentation:
+  Enabled: false
+
+LineLength:
+  Max: 99
+
+FrozenStringLiteralComment:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 15.3
+
+Metrics/BlockLength:
+  Enabled: false

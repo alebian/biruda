@@ -1,0 +1,23 @@
+sudo: false
+language: ruby
+rvm:
+  - 2.1
+  - 2.2
+  - 2.2.4
+  - 2.3.3
+
+install:
+  - gem install bundler -v 1.15.3
+  - bundle install --retry=3
+
+script:
+  - bundle exec rspec
+  - bundle exec rubocop -R lib spec --format simple
+
+addons:
+    code_climate:
+        repo_token: nil
+
+os:
+  - linux
+  - osx
