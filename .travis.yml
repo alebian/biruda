@@ -7,7 +7,7 @@ rvm:
   - 2.3.3
 
 install:
-  - gem install bundler -v 1.15.3
+  - gem install bundler -v 1.16.0
   - bundle install --retry=3
 
 script:
@@ -16,7 +16,7 @@ script:
 
 addons:
     code_climate:
-        repo_token: nil
+        repo_token: 5d3255ea9afc89e8f488f92dae45bc9d2fbe29fc27ade6fbcac348e24d51998c
 
 os:
   - linux

@@ -1,4 +1,9 @@
 # Biruda
+[![Gem Version](https://badge.fury.io/rb/biruda.svg)](https://badge.fury.io/rb/biruda)
+[![Dependency Status](https://gemnasium.com/badges/github.com/alebian/biruda.svg)](https://gemnasium.com/github.com/alebian/biruda)
+[![Build Status](https://travis-ci.org/alebian/biruda.svg)](https://travis-ci.org/alebian/biruda)
+[![Code Climate](https://codeclimate.com/github/alebian/biruda/badges/gpa.svg)](https://codeclimate.com/github/alebian/biruda)
+[![Test Coverage](https://codeclimate.com/github/alebian/biruda/badges/coverage.svg)](https://codeclimate.com/github/alebian/biruda/coverage)
 
 Biruda is a simple DSL to build HTML documents.
 
