@@ -2,7 +2,7 @@ require 'biruda/version'
 require 'biruda/html'
 
 module Biruda
-  def self.create_html(&block)
-    HTML.create(&block)
+  def self.create_html(options = {}, &block)
+    HTML.create(options, &block)
   end
 end

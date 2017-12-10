@@ -25,11 +25,11 @@ describe Biruda::HTML do
           head title body a abbr acronym address applet area article aside audio b base basefont
           bdo big blockquote br button canvas caption center cite code col colgroup datalist dd del
           details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form
-          frameset h1 header hr html i iframe img input ins kbd label legend li link main map mark
+          frameset header hr html i iframe img input ins kbd label legend li link main map mark
           menuitem meta meter nav noframes noscript object ol optgroup option output p param pre
           progress q rp rt ruby s samp script section select small source span strike strong style
           summary sup table tbody td textarea tfoot th thead time tr track tt u ul var video wbr p
-          sub bdi frame menu
+          sub bdi frame menu h1 h2 h3 h4 h5 h6
         ]
     end
   end

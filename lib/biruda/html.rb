@@ -6,31 +6,34 @@ module Biruda
       head title body a abbr acronym address applet area article aside audio b base basefont bdi
       bdo big blockquote br button canvas caption center cite code col colgroup datalist dd del
       details dfn dialog dir div dl dt em embed fieldset figcaption figure font footer form frame
-      frameset h1 header hr html i iframe img input ins kbd label legend li link main map mark menu
+      frameset header hr html i iframe img input ins kbd label legend li link main map mark menu
       menuitem meta meter nav noframes noscript object ol optgroup option output p param pre
       progress q rp rt ruby s samp script section select small source span strike strong style sub
       summary sup table tbody td textarea tfoot th thead time tr track tt u ul var video wbr p
+      h1 h2 h3 h4 h5 h6
     ].freeze
 
     def initialize
       @page = '<!DOCTYPE html>'
     end
 
-    def self.create(&block)
-      new.build(&block)
+    def self.create(options = {}, &block)
+      new.build(options, &block)
     end
 
     def to_s
       @page
     end
 
-    def build(&block)
+    def build(options = {}, &block)
+      @context = options[:context]
       html(&block)
       self
     end
 
-    def build_tag
-      yield
+    def build_tag(options = {}, &block)
+      @context = options[:context]
+      instance_eval(&block)
       self
     end
 
