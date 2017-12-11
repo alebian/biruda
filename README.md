@@ -32,7 +32,7 @@ page = Biruda.create_html do
         script src: 'mypage.com/mysuper.js'
     end
     body do
-        h1 'HEADING'
+        h1 'HEADING', class: 'title'
         p [
             'This is part of my ',
             -> { b 'paragraph' },
@@ -54,7 +54,7 @@ This will print:
         <script src="mypage.com/mysuper.js" />
     </head>
     <body>
-        <h1>HEADING</h1>
+        <h1 class="title">HEADING</h1>
         <p>
             This is part of my <b>paragraph</b>, amazing.
         </p>
