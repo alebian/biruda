@@ -13,12 +13,16 @@ module Biruda
       h1 h2 h3 h4 h5 h6
     ].freeze
 
-    def initialize
-      @page = '<!DOCTYPE html>'
+    def initialize(options = {})
+      @page = options[:blank] ? '' : '<!DOCTYPE html>'
     end
 
     def self.create(options = {}, &block)
       new.build(options, &block)
+    end
+
+    def self.build_tag(options = {}, &block)
+      new(blank: true).add(options, &block)
     end
 
     def to_s
@@ -31,9 +35,9 @@ module Biruda
       self
     end
 
-    def build_tag(options = {}, &block)
+    def add(options = {}, &block)
       @context = options[:context]
-      instance_eval(&block)
+      instance_eval(&block) if block_given?
       self
     end
 

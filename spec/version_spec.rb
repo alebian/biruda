@@ -4,6 +4,6 @@ describe Biruda::VERSION do
   let(:version) { Biruda::VERSION }
 
   it 'is the correct version' do
-    expect(version).to eq('0.1.1')
+    expect(version).to eq('0.1.2')
   end
 end

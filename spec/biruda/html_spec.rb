@@ -1,23 +1,6 @@
 require 'spec_helper'
 
 describe Biruda::HTML do
-  let(:complete_block) do
-    proc {
-      head do
-        title 'This is a HTML DSL test'
-        script src: 'mypage.com/mysuper.js'
-      end
-      body do
-        h1 'HEADING'
-        p [
-          'This is part of my ',
-          -> { b 'paragraph' },
-          ' Wow'
-        ]
-      end
-    }
-  end
-
   describe '::VALID_TAGS' do
     it 'contains all valid tags' do
       expect(described_class::VALID_TAGS)
@@ -35,6 +18,23 @@ describe Biruda::HTML do
   end
 
   describe '.create' do
+    let(:complete_block) do
+      proc {
+        head do
+          title 'This is a HTML DSL test'
+          script src: 'mypage.com/mysuper.js'
+        end
+        body do
+          h1 'HEADING'
+          p [
+            'This is part of my ',
+            -> { b 'paragraph' },
+            ' Wow'
+          ]
+        end
+      }
+    end
+
     it 'returns an HTML object' do
       expect(described_class.create.is_a?(described_class)).to be_truthy
     end
@@ -48,6 +48,25 @@ describe Biruda::HTML do
           '<p>This is part of my <b>paragraph</b> Wow</p></body></html>'
         )
       end
+    end
+  end
+
+  describe '.build_tag' do
+    let(:block) do
+      proc {
+        h1 'HEADING', class: 'super-class'
+      }
+    end
+
+    it 'returns an HTML object' do
+      expect(described_class.build_tag.is_a?(described_class)).to be_truthy
+    end
+
+    it 'creates the tag correctly' do
+      builder = described_class.build_tag(&block)
+      expect(builder.to_s).to eq(
+        '<h1 class="super-class">HEADING</h1>'
+      )
     end
   end
 end
